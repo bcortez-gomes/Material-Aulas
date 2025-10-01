@@ -23,6 +23,16 @@ section {
   border: none;
   border-radius: 6px;
   font-size: 16px;
+  transition: background 1s ease, transform: 0.5s ease;
+  cursor: pointer;
+}
+
+.press-btn:hover{
+  background:rgb(50, 139, 38);
+}
+
+.press-btn:active{
+  transform: scale(0.95);
 }
 
 /* 2. Card com hover */
@@ -33,6 +43,11 @@ section {
   background: white;
 }
 
+.card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
 /* 3. Link com underline animado */
 .link {
   position: relative;
@@ -40,14 +55,20 @@ section {
   color: #333;
   font-size: 18px;
 }
+
 .link::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -3px;
-  width: 100%;
+  width: 0;
   height: 2px;
   background: #3498db;
+}
+
+.link:hover::after{
+  width: 100%;
+  transition: width 0.3s ease;
 }
 
 /* 4. Loader animado */
@@ -57,6 +78,12 @@ section {
   border: 4px solid #ccc;
   border-top-color: #3498db;
   border-radius: 50%;
+  animation: giro 1s linear infinite;
+}
+
+@keyframes giro{
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
 }
 
 /* 5. Ícone que balança */
@@ -64,6 +91,15 @@ section {
   font-size: 40px;
   cursor: pointer;
   display: inline-block;
+  animation: sino 5s ease infinite;
+}
+
+@keyframes sino{
+  0%{ transform: rotate(0) }
+  25%{ transform: rotate(15deg) }
+  50%{ transform: rotate(-15deg) }
+  75%{ transform: rotate(10deg) }
+  100%{ transform: rotate(0) }
 }
 
 /* 6. Botão com gradiente animado */
@@ -76,6 +112,7 @@ section {
   background: linear-gradient(270deg, #ff6ec4, #7873f5);
   background-size: 200% 200%;
   cursor: pointer;
+  animation: gradientMove 60s ease infinite;
 }
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
@@ -110,6 +147,13 @@ section {
   border: none;
   background: none;
   cursor: pointer;
+  animation: pulsar 2s ease infinite;
+}
+
+@keyframes pulsar{
+  25% { transform: scale(0.5)}
+  50% { transform: scale(1) }
+  100% { transform: scale(0.5)}
 }
 
 /* Exercício 2 */
@@ -126,4 +170,10 @@ section {
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, #3498db, #2ecc71);
+  animation: progress 2s ease infinite;
+}
+
+@keyframes progress{
+  from { width:0}
+  to { width:100%}
 }
